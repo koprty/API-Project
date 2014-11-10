@@ -1,0 +1,16 @@
+body {
+    padding: 1em 2em;
+    margin:auto;
+}
+
+h2 {
+    margin:auto;
+}
+
+#search-div {
+    padding: 20% 0;
+}
+
+#search {
+    width:300px;
+}
