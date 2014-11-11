@@ -1,0 +1,30 @@
+# eBay SDK Defaults
+
+name: ebay_api_config
+
+# Trading API Sandbox - https://www.x.com/developers/ebay/products/trading-api
+api.sandbox.ebay.com:
+    compatability: 719
+    appid: Christin-2e88-4160-828c-885deb830846
+    certid: c1a0cd19-6f75-4952-953b-2d252a3ad09c
+    devid: af6883f6-09c4-46cb-9abe-909851d5e796
+    token: AgAAAA**AQAAAA**aAAAAA**D4phVA**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AHkIKoCZWEoQSdj6x9nY+seQ**c5ACAA**AAMAAA**1Xr7meTWPhTiSiyy7EpI+Cwyl5QFFzPoXzyV0GjPWbIFD5H0pprAOTWf+9eqj6x+0NU28okTU1ZTX7SAbTLVJuXJYOgnC5rVQ0GSyGMtZ3jfK8i1VdwwRjgB18Knk51cutKbIcfp4lEkfGwxDmvaNdZnxxXrhn04uaYqiPs6/6M3ACOs+mBxslESfi98Ld4AFAuIwJx6xzGrKiXNPNfjjDMhmEn3yuiQmhRZIHOx7UCV/14YgE27JIt2uw0htu0hnrGLQFEOakY/DALEQ4yCOkcNlfl0bciO0MFef4JOFeHizVzq0t5U+dE82549E5v3D6nF3yIk9aUO0h4/solAVxov416b1n8FVSTxvvMNyGdnhNc4zdRSez42ugvuHHYl2dYgvWojz9DzRPsvdwDRia5jUm48g4m4l+2BGXtZHfR2xkttMg4aHW5754lW1aEuZueI55HB81ZH1NOykpt9c0Ps58XgzmKOFr8zW3Ud/MNk5KR2FTE9hVsORAn7Y9MvgwPFeAh01pLaXCnpsZiqXLboSkoGPkRu8ODSBSHLxFgvS1nXj89PZLUeBm7xvcu7fpGhQ8AvFIfU2ZO6sHHOtXvVUe23AEJQX2MAOWNZvXpyo6wcUqfBdO3j3AH6f95UpwQ9P9ZKZ8KWY1mRac5mHlpcwfvvwGUQeoTkkStws3A/3pSJP1w6i/6Gbv7sV8KkrOngsgpzlA5gN6BFCVxs7XikIM+D8dzPsLGcu1EceWyFcVoqkK1WRq7U2dL63v7o
+
+# Trading API - https://www.x.com/developers/ebay/products/trading-api
+api.ebay.com:
+    version: 719
+    appid: Christin-2e88-4160-828c-885deb830846
+    certid: c1a0cd19-6f75-4952-953b-2d252a3ad09c
+    devid: af6883f6-09c4-46cb-9abe-909851d5e796
+    token: AgAAAA**AQAAAA**aAAAAA**D4phVA**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AHkIKoCZWEoQSdj6x9nY+seQ**c5ACAA**AAMAAA**1Xr7meTWPhTiSiyy7EpI+Cwyl5QFFzPoXzyV0GjPWbIFD5H0pprAOTWf+9eqj6x+0NU28okTU1ZTX7SAbTLVJuXJYOgnC5rVQ0GSyGMtZ3jfK8i1VdwwRjgB18Knk51cutKbIcfp4lEkfGwxDmvaNdZnxxXrhn04uaYqiPs6/6M3ACOs+mBxslESfi98Ld4AFAuIwJx6xzGrKiXNPNfjjDMhmEn3yuiQmhRZIHOx7UCV/14YgE27JIt2uw0htu0hnrGLQFEOakY/DALEQ4yCOkcNlfl0bciO0MFef4JOFeHizVzq0t5U+dE82549E5v3D6nF3yIk9aUO0h4/solAVxov416b1n8FVSTxvvMNyGdnhNc4zdRSez42ugvuHHYl2dYgvWojz9DzRPsvdwDRia5jUm48g4m4l+2BGXtZHfR2xkttMg4aHW5754lW1aEuZueI55HB81ZH1NOykpt9c0Ps58XgzmKOFr8zW3Ud/MNk5KR2FTE9hVsORAn7Y9MvgwPFeAh01pLaXCnpsZiqXLboSkoGPkRu8ODSBSHLxFgvS1nXj89PZLUeBm7xvcu7fpGhQ8AvFIfU2ZO6sHHOtXvVUe23AEJQX2MAOWNZvXpyo6wcUqfBdO3j3AH6f95UpwQ9P9ZKZ8KWY1mRac5mHlpcwfvvwGUQeoTkkStws3A/3pSJP1w6i/6Gbv7sV8KkrOngsgpzlA5gN6BFCVxs7XikIM+D8dzPsLGcu1EceWyFcVoqkK1WRq7U2dL63v7o
+
+# Finding API - https://www.x.com/developers/ebay/products/finding-api
+svcs.ebay.com:
+    appid: Christin-2e88-4160-828c-885deb830846
+    version: 1.0.0
+
+# Shopping API - https://www.x.com/developers/ebay/products/shopping-api
+open.api.ebay.com:
+    appid: Christin-2e88-4160-828c-885deb830846
+    version: 671
+
