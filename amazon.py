@@ -28,7 +28,7 @@ def blendedsearch(searchwords):
 #d[product.title] = product.price_and_currency
     print d'''
 
-print blendedsearch("Bracelet")
+blendedsearch("Bracelet")
 
 '''
 api = API(locale='de')
