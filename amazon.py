@@ -28,8 +28,8 @@ def blendedsearch(searchwords):
         productprice = api.item_lookup(str(asin),ResponseGroup="OfferFull") #price info
         
         name = product.Items.Item.ItemAttributes.Title
-        link = product.ItemLinks[0].URL
-        print name, url
+        #link = product.ItemLinks[0].URL
+        #print name, url
         price = productprice.Items.Item.OfferSummary.LowestNewPrice.Amount
         d.append((name, float("{0:.2f}".format(price/100.0)))) #cannot add dollarsign or else it messes up sorting
     sortedd=sorted(d, key=operator.itemgetter(1), reverse=False)
