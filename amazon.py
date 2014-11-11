@@ -7,10 +7,29 @@ config ={
     }
 
 api = API(cfg=config)
-items = api.item_search('Books', Publisher="O'Reilly")
-for book in items:
-    print '%s: "%s"' % (book.ItemAttributes.Author,
-                        book.ItemAttributes.Title)
+def booksearch ():
+    items = api.item_search('Books', Publisher="O'Reilly")
+    for book in items:
+        print '%s: "%s"' % (book.ItemAttributes.Author,
+                            book.ItemAttributes.Title)
+
+def blendedsearch(searchwords):
+    items = api.item_search('All', Keywords=searchwords)
+    d={}
+    ids = []
+    for i in items:
+        ids.append(i.ASIN)
+    print ids
+    for asin in ids:
+        product= api.item_lookup(ItemId=asin)
+        print product
+        
+'''d[product.ItemAttributes.title]= product.ItemAttributes.title
+#d[product.title] = product.price_and_currency
+    print d'''
+
+print blendedsearch("Bracelet")
+
 '''
 api = API(locale='de')
 
