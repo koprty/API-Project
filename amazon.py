@@ -17,19 +17,41 @@ def blendedsearch(searchwords):
     items = api.item_search('All', Keywords=searchwords)
     d={}
     ids = []
+    products = []
     for i in items:
         ids.append(i.ASIN)
     print ids
     for asin in ids:
-        product= api.item_lookup(ItemId=asin)
-        print product
+        product = api.item_lookup(str(asin), ResponseGroup="ItemAttributes")
+        productprice = api.item_lookup(str(asin),ResponseGroup='OfferFull')
+        
+        name = product.Items.Item.ItemAttributes.Title
+        price = productprice.Items.Item.OfferSummary.LowestNewPrice.FormattedPrice
+        d[name] = price
+    return d
         
 '''d[product.ItemAttributes.title]= product.ItemAttributes.title
 #d[product.title] = product.price_and_currency
     print d'''
+#booksearch()
 
-print blendedsearch("Bracelet")
+def code(searchWord):
+    pageNo = 1
+    result = api.item_search('All', Keywords=searchWord, ResponseGroup='Large', ItemPage=pageNo, MerchantId='All')
+    for item in result:
+        try:
+            print item.ItemAttributes.Title
+        except (UnicodeEncodeError):
+            pass
+    prices = api.item_lookup('All', Keywords=searchWord, ResponseGroup='Offers', ItemPage=pageNo, MerchantId='All')
+    for item in prices.Items.Item.Offers.Offer:
+        try:
+            print item.OfferListing.Price.FormattedPrice
+        except (UnicodeEncodeError):
+            pass
 
+print blendedsearch("fluffy")
+        
 '''
 api = API(locale='de')
 
