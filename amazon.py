@@ -1,5 +1,6 @@
 from amazonproduct import API
 import operator
+#NOTE - price formatting has not been implemented (since it screws up the sorting stuff)
 config ={
     'access_key': 'AKIAIE3MWTF3ITAIP4OA',
     'secret_key': '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',
@@ -17,22 +18,19 @@ def booksearch ():
 
 def blendedsearch(searchwords):
     items = api.item_search('All', Keywords=searchwords)
-    d={}
+    d=[]
     ids = []
     products = []
     for i in items:
         ids.append(i.ASIN)
     for asin in ids:
-        product = api.item_lookup(str(asin), ResponseGroup="ItemAttributes")
-        productprice = api.item_lookup(str(asin),ResponseGroup="OfferFull")
+        product = api.item_lookup(str(asin), ResponseGroup="ItemAttributes") #itemAttributes has name, brand, and other info
+        productprice = api.item_lookup(str(asin),ResponseGroup="OfferFull") #price info
         
         name = product.Items.Item.ItemAttributes.Title
-        price = productprice.Items.Item.OfferSummary.LowestNewPrice
-        print name, price
-
-        d[name] = price/100
-
-    sortedd=sorted(d.items(), key=operator.itemgetter(1), reverse=False)
+        price = productprice.Items.Item.OfferSummary.LowestNewPrice.Amount
+        d.append((name, float("{0:.2f}".format(price/100.0)))) #cannot add dollarsign or else it messes up sorting
+    sortedd=sorted(d, key=operator.itemgetter(1), reverse=False)
     return sortedd
         
 print blendedsearch("bracelet")
