@@ -11,11 +11,18 @@ app=Flask(__name__)                                                             
 def home():                                                                     
     try:                                                                        
         api = finding(appid="Christin-2e88-4160-828c-885deb830846")             
-        response = api.execute('findItemsAdvanced', {'keywords': 'shoes'})      
-        print (response.dict())                                                 
+        response = api.execute('findItemsAdvanced', {'keywords': 'lamy safari fountain pen'})      
+        res = response.dict()
+        print res['itemSearchURL']
+        res = res['searchResult']['item']
+        for item in res:
+            print item['itemId']
+            print item['title']
     except ConnectionError as e:                                                
-        print(e)                                                                
-        print(e.response.dict())
+        print e                                                                
+        print e.response.dict()
+    return "hello"
+
 if __name__=="__main__":
     app.debug=True
     app.run()                                                                                                                                                                                            

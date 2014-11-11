@@ -35,6 +35,7 @@ def blendedsearch(searchwords):
     print d'''
 #booksearch()
 
+<<<<<<< HEAD
 def code(searchWord):
     pageNo = 1
     result = api.item_search('All', Keywords=searchWord, ResponseGroup='Large', ItemPage=pageNo, MerchantId='All')
@@ -49,6 +50,9 @@ def code(searchWord):
             print item.OfferListing.Price.FormattedPrice
         except (UnicodeEncodeError):
             pass
+=======
+blendedsearch("Bracelet")
+>>>>>>> 8f59cb5e89b948eeda775d7bc9f2e3c62b0df7aa
 
 print blendedsearch("fluffy")
         
