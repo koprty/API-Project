@@ -27,12 +27,12 @@ def blendedsearch(searchwords):
         productprice = api.item_lookup(str(asin),ResponseGroup="OfferFull")
         
         name = product.Items.Item.ItemAttributes.Title
-        price = productprice.Items.Item.OfferSummary.LowestNewPrice.FormattedPrice
+        price = productprice.Items.Item.OfferSummary.LowestNewPrice
         print name, price
 
-        d[name] = price
+        d[name] = price/100
 
-    sortedd=sorted(d.items(), key=operator.itemgetter(1), reverse=Fals)
+    sortedd=sorted(d.items(), key=operator.itemgetter(1), reverse=False)
     return sortedd
         
 print blendedsearch("bracelet")
