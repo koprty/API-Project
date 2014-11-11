@@ -34,8 +34,8 @@ def blendedsearch(searchwords):
         d.append((name, float("{0:.2f}".format(price/100.0)))) #cannot add dollarsign or else it messes up sorting
     sortedd=sorted(d, key=operator.itemgetter(1), reverse=False)
     return sortedd
-        
-print blendedsearch("bracelet")
+
+print blendedsearch("fluffy")
         
 '''
 api = API(locale='de')
