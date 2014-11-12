@@ -23,8 +23,8 @@ API-Project
 Place these elements in amazon.py for a working version of the app.
 
 config ={
-    'access_key': <your-access-key>,
-    'secret_key': <your-secret-key>,
-    'associate_tag': <your-associate-tag>,
+    'access_key': your-access-key,
+    'secret_key': your-secret-key,
+    'associate_tag': your-associate-tag,
     'locale': 'us',
     }
