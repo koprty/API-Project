@@ -1,15 +1,19 @@
 from amazonproduct import API
 import operator
 #NOTE - $ price formatting has not been implemented (since it screws up the sorting stuff)   
+
+####################################################
+#replace below config stuff
 config ={
     'access_key': <access-key>,
     'secret_key': <secret-key>,
     'associate_tag': <associate-tag>,
     'locale': 'us',
     }
+####################################################
 
 api = API(cfg=config)
-#returns a tuple with (name, unformatted-price-but-with-decimal-point, page-url, img-url(medium-size), height, width)
+#returns a list of tuples in format-> (name, unformatted-price-but-with-decimal-point, page-url, img-url(medium-size), height, width)
 def blendedsearch(searchwords):
     items = api.item_search('All', Keywords=searchwords)
     d=[]
@@ -36,14 +40,5 @@ def blendedsearch(searchwords):
     sortedd=sorted(d, key=operator.itemgetter(1), reverse=False)
     return sortedd
 
-print blendedsearch("fluffy")
-        
-'''
-api = API(locale='de')
+#print blendedsearch("fluffy")
 
-# get all books from result set and
-# print author and title
-for book in api.item_search('Books', Publisher='Galileo Press'):
-    print '%s: "%s"' % (book.ItemAttributes.Author,
-                        book.ItemAttributes.Title)
-'''
