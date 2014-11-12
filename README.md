@@ -10,4 +10,8 @@ API-Project
 
 `pip install lxml`
 
-**Note the access key is not working yet.**
+**Getting the Ebay API to work**
+
+`pip install ebaysdk`
+
+**Note you need an Amazon access key, secret key, and associate tag.*****

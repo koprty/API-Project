@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from amazon import blendedsearch
 from ebay import ebaysearch
 
@@ -17,7 +17,7 @@ def search():
         ebay = ebaysearch(query,8)
         return render_template("result.html",amazon=amazon, ebay=ebay)
     else:
-        return "Bleh."
+        return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(debug=True,port=9233)
