@@ -4,25 +4,24 @@ import operator
 
 ####################################################
 #replace below config stuff
-config ={
-    'access_key': 'AKIAJLFLMJ7JSZKLEE4A',
-    'secret_key': 'j6VMclIgFyvh0MLW5dLvWLlXkouLpf04VsPPOJo/',
-    'associate_tag': 'appr0c9-20',
-    'locale': 'us',
-}
+
 ####################################################
 
 api = API(cfg=config)
 #returns a list of tuples in format-> (name, unformatted-price-but-with-decimal-point, page-url, img-url(medium-size), height, width)
-def blendedsearch(searchwords):
-    items = api.item_search('All', Keywords=searchwords)
+def blendedsearch(searchwords,num=None):
+    items = api.item_search('All',Availability="Available", Keywords=searchwords)
+    count =0
     d=[]
     ids = []
     products = []
-    counter = 0;
     for i in items:
         ids.append(i.ASIN)
-        counter+=1;
+        count += 1
+        if num == None:
+            num = 10
+        if count >num:
+            break
     for asin in ids:
         try:
             product = api.item_lookup(str(asin)) #itemAttributes has name, brand, and other info
@@ -44,6 +43,5 @@ def blendedsearch(searchwords):
         d[i] = {'name':d[i][0],'price':d[i][1],'url':d[i][2],'img_url':d[i][3],'img_height':d[i][4],'img_width':d[i][5]}
     print counter
     return sortedd
-
 print blendedsearch("lamy safari fountain pen")
 
