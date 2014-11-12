@@ -1,6 +1,5 @@
 from amazonproduct import API
 import operator
-#NOTE - $ price formatting has not been implemented (since it screws up the sorting stuff)   
 
 ####################################################
 #replace below config stuff
