@@ -19,7 +19,7 @@ def blendedsearch(searchwords,num=None):
         ids.append(i.ASIN)
         count += 1
         if num == None:
-            num = 10
+            num = 8
         if count >num:
             break
     for asin in ids:
@@ -32,16 +32,14 @@ def blendedsearch(searchwords,num=None):
             price = productprice.Items.Item.OfferSummary.LowestNewPrice.Amount
             link = product.Items.Item.DetailPageURL
             imglink = image.Items.Item.MediumImage.URL
-            height = image.Items.Item.MediumImage.Height
-            width = image.Items.Item.MediumImage.Width
-            
-            d.append(  (name, float("{0:.2f}".format(price/100.0)), link, imglink, height, width)   ) #cannot add dollarsign or else it messes up sorting
+
+            d.append(  (name, float("{0:.2f}".format(price/100.0)), link, imglink)) #cannot add dollarsign or else it messes up sorting
         except AttributeError:
             pass
     sortedd=sorted(d, key=operator.itemgetter(1), reverse=False)
-    for i in enumerate(d):
-        d[i] = {'name':d[i][0],'price':d[i][1],'url':d[i][2],'img_url':d[i][3],'img_height':d[i][4],'img_width':d[i][5]}
-    print counter
+    for i, x in enumerate(sortedd):
+        sortedd[i] = {'name':sortedd[i][0],'price':sortedd[i][1],'url':sortedd[i][2],'img_url':sortedd[i][3]}
     return sortedd
-print blendedsearch("lamy safari fountain pen")
+
+#print blendedsearch("lamy safari fountain pen")
 

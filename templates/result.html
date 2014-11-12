@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Search</title>
+    <link rel="stylesheet" type="text/css" href="../static/pure-min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/main.css" />
+</head>
+<body>
+<div class="pure-g">
+    <div class="pure-u-1">
+        <h2>Price Comparator</h2>
+        <p><a href="/">Search again?</a></p>
+    </div>
+    <div class="pure-u-11-24">
+        <h3>Amazon</h3>
+        <hr>
+        {% for item in amazon %}
+            <h4>{{item.name}}</h4>
+            <a href="{{item.url}}"><img src="{{ item.img_url }}"></a>
+            <p class="price">${{item.price}}<p>
+            <hr>
+        {% endfor %}
+    </div>
+    <div class="pure-u-1-24"></div>
+    <div class="pure-u-12-24">
+        <h3>ebay</h3>
+        <hr>
+        {% for item in ebay %}
+            <h4>{{item.name}}</h4>
+            <a href="{{item.url}}"><img src="{{ item.img_url }}"></a>
+            <p class="price">${{item.price}} ({{item.listing_type}})<p>
+            <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>
