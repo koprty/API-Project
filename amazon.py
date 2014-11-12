@@ -1,6 +1,12 @@
 from amazonproduct import API
 import operator
 #NOTE - $ price formatting has not been implemented (since it screws up the sorting stuff)   
+config ={
+    'access_key': <access-key>,
+    'secret_key': <secret-key>,
+    'associate_tag': <associate-tag>,
+    'locale': 'us',
+    }
 
 api = API(cfg=config)
 #returns a tuple with (name, unformatted-price-but-with-decimal-point, page-url, img-url(medium-size), height, width)
