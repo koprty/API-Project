@@ -4,12 +4,7 @@ import operator
 
 ####################################################
 #replace below config stuff
-config ={
-    'access_key': 'AKIAJLFLMJ7JSZKLEE4A',
-    'secret_key': 'j6VMclIgFyvh0MLW5dLvWLlXkouLpf04VsPPOJo/',
-    'associate_tag': 'appr0c9-20',
-    'locale': 'us',
-    }
+
 ####################################################
 
 api = API(cfg=config)
