@@ -5,11 +5,11 @@ import operator
 ####################################################
 #replace below config stuff
 config ={
-    'access_key': <access-key>,
-    'secret_key': <secret-key>,
-    'associate_tag': <associate-tag>,
+    'access_key': 'AKIAJLFLMJ7JSZKLEE4A',
+    'secret_key': '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',
+    'associate_tag': 'appr0c9-20',
     'locale': 'us',
-    }
+}
 ####################################################
 
 api = API(cfg=config)
@@ -19,8 +19,10 @@ def blendedsearch(searchwords):
     d=[]
     ids = []
     products = []
+    counter = 0;
     for i in items:
         ids.append(i.ASIN)
+        counter+=1;
     for asin in ids:
         try:
             product = api.item_lookup(str(asin)) #itemAttributes has name, brand, and other info
@@ -38,7 +40,10 @@ def blendedsearch(searchwords):
         except AttributeError:
             pass
     sortedd=sorted(d, key=operator.itemgetter(1), reverse=False)
+    for i in enumerate(d):
+        d[i] = {'name':d[i][0],'price':d[i][1],'url':d[i][2],'img_url':d[i][3],'img_height':d[i][4],'img_width':d[i][5]}
+    print counter
     return sortedd
 
-#print blendedsearch("fluffy")
+print blendedsearch("lamy safari fountain pen")
 
