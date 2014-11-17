@@ -1,6 +1,7 @@
 API-Project
 ===========
 
+##Lise Ho, Christina Ko, Ivy Wong
 
 **Getting the Amazon API part to work**
 
