@@ -9,29 +9,21 @@ import operator
 api = API(cfg=config)
 #returns a dictionary
 def blendedsearch(searchwords,num=None):
-    items = api.item_search('All',Availability="Available", Keywords=searchwords)
-    count =0
-    d=[]
-    ids = []
-    products = []
-    for i in items:
-        ids.append(i.ASIN)
-        count += 1
-        if num == None:
-            num = 8
-        if count >num:
+    d = []
+    items = api.item_search('All',Availability="Available", Keywords=searchwords,ResponseGroup='Large')   
+    if num == None:
+        num = 8
+    
+    for i, item in enumerate(items):
+        if i > num:
             break
-    for asin in ids:
+        #print i
         try:
-            product = api.item_lookup(str(asin)) #itemAttributes has name, brand, and other info
-            productprice = api.item_lookup(str(asin),ResponseGroup="OfferFull") #price info
-            image = api.item_lookup(str(asin),ResponseGroup="Images") #image info
- 
-            name = product.Items.Item.ItemAttributes.Title
-            price = productprice.Items.Item.OfferSummary.LowestNewPrice.Amount
-            link = product.Items.Item.DetailPageURL
-            imglink = image.Items.Item.MediumImage.URL
-
+            name = item.ItemAttributes.Title
+            price = item.OfferSummary.LowestNewPrice.Amount
+            link = item.DetailPageURL
+            imglink = item.MediumImage.URL
+        
             d.append(  (name, float("{0:.2f}".format(price/100.0)), link, imglink)) #cannot add dollarsign or else it messes up sorting
         except AttributeError:
             pass
@@ -41,4 +33,4 @@ def blendedsearch(searchwords,num=None):
         sortedd[i] = {'name':sortedd[i][0],'price':sortedd[i][1],'url':sortedd[i][2],'img_url':sortedd[i][3]}
     return sortedd
 
-#print blendedsearch("lamy safari fountain pen")
+#blendedsearch("lamy safari fountain pen",2)

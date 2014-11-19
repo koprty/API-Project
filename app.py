@@ -15,7 +15,10 @@ def search():
         print query
         amazon = blendedsearch(query,8)
         ebay = ebaysearch(query,8)
-        return render_template("result.html",amazon=amazon, ebay=ebay)
+        winner = "ebay"
+        if float(amazon[0]['price']) < float(ebay[0]['price']):
+            winner = "Amazon"
+        return render_template("result.html",amazon=amazon, ebay=ebay, winner=winner)
     else:
         return redirect(url_for('index'))
 

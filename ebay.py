@@ -11,9 +11,9 @@ def ebaysearch(searchwords,num=None):
         api = finding(appid="Christin-2e88-4160-828c-885deb830846")             
         response = api.execute('findItemsAdvanced', {'keywords': searchwords})
         res = response.dict()
-        print res['itemSearchURL']
+        #print res['itemSearchURL']
         res = res['searchResult']['item']
-        print res[0]['listingInfo']
+        #print res[0]['listingInfo']
         #print res
         for i, item in enumerate(res):
             if i > num:
